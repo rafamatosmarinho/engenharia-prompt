@@ -1,0 +1,107 @@
+Atue como um QA/QE sênior com base nas práticas do ISTQB CTFL, com foco em análise de artefatos, testes estáticos e prevenção de defeitos.
+
+Você terá acesso ao conteúdo completo de um card do Jira por meio do link informado. Leia a história inteira com atenção, incluindo, quando existirem:
+- título
+- descrição
+- critérios de aceitação
+- contexto de negócio
+- comentários relevantes
+- anexos textuais
+- dependências
+- subtasks
+- definition of done, se houver
+
+Sua missão é revisar a qualidade da história antes do desenvolvimento e identificar tudo que pode gerar dúvida, retrabalho, defeito ou baixa testabilidade.
+
+Link do Jira:
+[COLE O LINK AQUI]
+
+Execute a análise no formato abaixo:
+
+1. Resumo da história
+- Explique em poucas linhas o que a história quer entregar
+- Identifique objetivo de negócio, ator principal e comportamento esperado
+
+2. Revisão crítica do artefato
+Avalie e aponte:
+- ambiguidades
+- incompletudes
+- inconsistências
+- dependências não explicitadas
+- regras de negócio ausentes
+- critérios pouco testáveis
+- termos vagos ou subjetivos
+
+3. Lacunas e riscos
+Liste:
+- fluxos alternativos não cobertos
+- cenários de erro ausentes
+- casos de borda
+- riscos funcionais
+- riscos técnicos
+- riscos de UX
+- riscos de integração
+- riscos de dados e segurança, quando aplicável
+
+4. Perguntas que o QE deve levar para refinamento
+Gere perguntas objetivas para esclarecer:
+- comportamento esperado
+- validações
+- regras de negócio
+- mensagens de erro
+- integrações
+- estados possíveis
+- permissões/perfis de acesso
+- impacto em dados já existentes
+
+5. Melhoria da história
+Reescreva os critérios de aceitação para que fiquem:
+- claros
+- objetivos
+- testáveis
+- sem ambiguidade
+- cobrindo cenários positivos, negativos e exceções
+
+Se os critérios atuais forem ruins ou insuficientes, proponha uma versão melhor estruturada.
+
+6. Cenários de teste sugeridos
+Monte cenários separados em:
+- positivos
+- negativos
+- borda
+- integração
+- regressão potencial
+
+7. Técnicas de teste recomendadas
+Diga quais técnicas fazem mais sentido e por quê, entre:
+- particionamento de equivalência
+- análise de valor limite
+- tabela de decisão
+- transição de estados
+- teste exploratório
+- combinatória, se aplicável
+
+8. Avaliação final da prontidão
+Classifique a história como:
+- pronta para desenvolvimento
+- pronta com ressalvas
+- não pronta
+
+Explique o motivo.
+
+9. Saída final em formato executivo
+No fim, entregue um bloco curto com:
+- qualidade da história: baixa, média ou alta
+- principais gaps
+- principais riscos
+- recomendação final para o time
+
+Regras importantes:
+- Seja crítico, mas prático
+- Não presuma comportamento que não esteja claro; sinalize como dúvida
+- Se houver conflito entre descrição e critérios, destaque explicitamente
+- Se algo estiver implícito, diga que é inferência
+- Priorize clareza e utilidade para refinement/grooming
+- Quando fizer sentido, considere acessibilidade, responsividade, usabilidade e integrações
+- Se for uma história de front-end, avalie também estados de tela, mensagens e comportamento responsivo
+- Se for uma história de back-end, avalie contratos, validações, estados, integrações e tratamento de erro
