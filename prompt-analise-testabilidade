@@ -1,0 +1,86 @@
+Analise a imagem enviada, que contém um diagrama de processo/sistema.
+
+Seu objetivo é atuar como um especialista sênior em Qualidade de Software, Test Architecture e Engenharia de Testes.
+
+Quero que você interprete visualmente o diagrama e identifique TODOS os pontos relevantes de testabilidade.
+
+Considere que o diagrama pode conter:
+- BPMN
+- Fluxo de negócio
+- Jornada do usuário
+- Integrações entre sistemas
+- APIs
+- Bancos de dados
+- Decisões/gateways
+- Mensageria/eventos
+- Processos manuais e automáticos
+
+### Entregue a análise no seguinte formato:
+
+## 1. Resumo do fluxo
+Explique objetivamente o que o diagrama representa, principais atores, sistemas e objetivo do processo.
+
+## 2. Pontos de Testabilidade Identificados
+Liste cada ponto onde existem oportunidades de teste, como por exemplo:
+- entradas de dados
+- validações
+- decisões/gateways
+- integrações
+- persistência em banco
+- filas/eventos
+- autenticação/autorização
+- notificações
+- tratamento de erros
+- concorrência
+- idempotência
+- performance
+- segurança
+- UX/UI
+- acessibilidade
+- responsividade
+
+Para cada ponto, informe:
+- Nome do ponto
+- Onde aparece no fluxo
+- Risco associado
+- O que validar
+
+## 3. Cobertura por Tipo de Teste
+Separe o que testar em:
+
+### Testes Unitários
+Regras de negócio, decisões, validações, mapeamentos, tratamento de exceções.
+
+### Integração Local
+Aplicação + banco em memória + mocks/stubs (WireMock).
+
+### Integração API / Staging
+Contratos reais, autenticação, comportamento em ambiente integrado.
+
+### E2E
+Jornada ponta a ponta do usuário.
+
+## 4. Fluxos Críticos
+Identifique os fluxos mais sensíveis e prioritários para testes.
+
+## 5. Riscos de Produção
+Liste problemas que podem escapar se esse fluxo não for testado corretamente.
+
+## 6. Matriz de Prioridade
+Classifique os pontos encontrados como:
+- Alta prioridade
+- Média prioridade
+- Baixa prioridade
+
+## 7. Casos de Teste Sugeridos
+Crie exemplos práticos de cenários.
+
+### Regras importantes:
+- Não descreva genericamente.
+- Use o conteúdo visual da imagem.
+- Interprete setas, decisões, atores e sistemas.
+- Se houver BPMN, considere eventos, gateways e swimlanes.
+- Se houver integrações externas, proponha testes de timeout, retry e falhas.
+- Se houver front-end/web, considere WCAG 2.0, responsividade e usabilidade.
+- Seja detalhado e técnico.
+- Se houver ambiguidade visual, indique hipóteses assumidas.
