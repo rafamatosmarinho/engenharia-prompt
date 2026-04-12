@@ -1,1 +1,1 @@
-# engenharia-prompt
+# Estudos sobre engenharia de prompt
