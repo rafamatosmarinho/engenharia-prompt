@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SDLC com Gates Automatizados no Jira</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f8fafc;color:#0f172a;font-family:Arial,Helvetica,sans-serif}
+.board{width:1800px;margin:0 auto;padding:28px;background:#fff}.header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+h1{margin:0;font-size:44px;font-weight:900;color:#0b122a}.subtitle{margin-top:6px;font-size:22px;font-weight:600;color:#1e293b}
+.legend{display:grid;grid-template-columns:repeat(3,auto);gap:14px;padding:16px 20px;border:1px solid #cbd5e1;border-radius:14px;box-shadow:0 4px 16px rgba(15,23,42,.08);font-size:14px;font-weight:700}
+.legend span{display:flex;align-items:center;gap:8px;white-space:nowrap}.dot{width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;color:#fff;font-weight:900}.ok{background:#16a34a}.no{background:#dc2626}.lock{background:#0f172a}
+.grid{display:grid;grid-template-columns:160px 520px 360px 330px 220px 240px;border:1px solid #cbd5e1;border-radius:14px;overflow:hidden}
+.head{background:#123a7a;color:#fff;padding:16px 14px;font-size:15px;line-height:1.2;font-weight:900;text-align:center;border-right:1px solid #8aa7d6}
+.cell{min-height:190px;padding:18px;border-right:1px solid #cbd5e1;border-bottom:1px solid #cbd5e1;background:#fff;font-size:14px;line-height:1.35}
+.type{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:800}.typeIcon{width:64px;height:64px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;margin-bottom:8px}.initiative{background:#0b62c4}.epic{background:#129447}.story{background:#7e22ce}.subtask{background:#f97316}.typeTitle{font-size:22px}.typeSub{font-size:14px;font-weight:500}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:42px}.flow.storyFlow{margin-top:30px}
+.status{border:1px solid #93c5fd;background:#eff6ff;padding:14px 16px;border-radius:8px;min-width:82px;text-align:center;font-weight:700;font-size:13px}.status.green{background:#dcfce7;border-color:#22c55e}.status.purple{background:#f3e8ff;border-color:#9333ea}.status.orange{background:#ffedd5;border-color:#f97316}.status.dark{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
+.arrow{font-size:24px;font-weight:900;color:#2563eb}.gateCheck{width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;background:#16a34a;font-weight:900;margin-left:4px}
+h3{margin:0 0 10px;font-size:14px;font-weight:900}.blueText{color:#1d4ed8}.greenText{color:#15803d}.purpleText{color:#7e22ce}.orangeText{color:#ea580c}
+ul{margin:0;padding-left:18px}li{margin-bottom:6px}.check li::marker{color:#16a34a}.fields li::marker{color:#1d4ed8}.fields.green li::marker{color:#15803d}.fields.purple li::marker{color:#7e22ce}.fields.orange li::marker{color:#ea580c}
+.gateBox{border-left:3px solid #9333ea;padding-left:12px;margin-bottom:14px}.integration{display:flex;gap:12px;align-items:flex-start;margin-bottom:18px;font-weight:700}.integrationIcon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;flex:0 0 auto}.confluence{background:#2563eb}.figma{background:#ef4444}.github{background:#111827}.cicd{background:#0ea5e9}.zephyr{background:#10b981}.jira{background:#2563eb}
+.resultIcon{font-size:32px;color:#16a34a;margin-bottom:12px}.mini{display:flex;gap:28px;margin-top:34px;font-weight:800;font-size:12px}.mini div{text-align:center}.mini .circle{width:38px;height:38px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:20px}
+.footer{display:grid;grid-template-columns:340px 600px 360px 430px;gap:20px;margin-top:20px}.panel{border:1px solid #93c5fd;border-radius:12px;background:#fff;padding:16px;min-height:130px}.panel h3{text-align:center;color:#123a7a}.how{display:flex;align-items:center;justify-content:space-around;text-align:center;font-size:13px;font-weight:700}.howStep{width:110px}.howIcon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#e0f2fe;color:#0369a1;font-size:22px;margin:0 auto 8px;font-weight:900}.howArrow{font-size:26px;font-weight:900;color:#334155}
+</style>
+</head>
+<body>
+<main class="board">
+<section class="header">
+<div><h1>SDLC COM GATES AUTOMATIZADOS NO JIRA</h1><div class="subtitle">Governança • Qualidade • Rastreabilidade • Automação</div></div>
+<div class="legend"><span><i class="dot ok">✓</i>Avança se todos os critérios forem atendidos</span><span><i class="dot no">×</i>Bloqueado se algum critério obrigatório falhar</span><span><i class="dot lock">▣</i>Gates automatizados no Jira</span></div>
+</section>
+
+<section class="grid">
+<div class="head">TIPO DE CARD</div><div class="head">FLUXO DO CARD<br><small>STATUS / TRANSIÇÕES</small></div><div class="head">GATES AUTOMATIZADOS<br><small>CRITÉRIOS OBRIGATÓRIOS</small></div><div class="head">ARTEFATOS / CAMPOS OBRIGATÓRIOS<br><small>NO JIRA</small></div><div class="head">INTEGRAÇÕES<br><small>AUTOMÁTICAS</small></div><div class="head">RESULTADO ESPERADO</div>
+
+<div class="cell type"><div class="typeIcon initiative">◎</div><div class="typeTitle" style="color:#0b62c4">INICIATIVA</div><div class="typeSub">Alinhamento Estratégico</div></div>
+<div class="cell"><div class="flow"><div class="status">Draft</div><span class="arrow">→</span><div class="status">Discovery</div><span class="arrow">→</span><div class="status">Solution<br>Design</div><span class="arrow">→</span><div class="status dark">Ready for<br>Refinement</div><span class="gateCheck">✓</span></div></div>
+<div class="cell"><h3 class="blueText">GATE: READY FOR REFINEMENT</h3><ul class="check"><li>Objetivo do negócio definido</li><li>Problema / oportunidade documentado</li><li>Indicadores e valor esperado definidos</li><li>Sistemas impactados identificados</li><li>Riscos iniciais identificados pelo QE</li><li>Estratégia inicial de testes definida</li><li>Fluxo macro / solution design anexado</li></ul></div>
+<div class="cell"><ul class="fields"><li>Business Objective</li><li>Business Value</li><li>Impacted Systems</li><li>Initial Risks</li><li>QE Initial Strategy</li><li>Solution Design Link</li></ul></div>
+<div class="cell"><div class="integration"><div class="integrationIcon confluence">C</div><div>Confluence<br><small>Solution Design</small></div></div><div class="integration"><div class="integrationIcon figma">F</div><div>Figma<br><small>Fluxos</small></div></div></div>
+<div class="cell"><div class="resultIcon">↗</div><ul><li>Visão clara do objetivo</li><li>Riscos antecipados</li><li>Melhor previsibilidade</li><li>Menos retrabalho</li><li>QE participa desde o início</li></ul></div>
+
+<div class="cell type"><div class="typeIcon epic">▲</div><div class="typeTitle" style="color:#129447">ÉPICO</div><div class="typeSub">Readiness da Solução</div></div>
+<div class="cell"><div class="flow"><div class="status green">Refinement</div><span class="arrow" style="color:#16a34a">→</span><div class="status green">Ready for<br>Development</div><span class="gateCheck">✓</span></div></div>
+<div class="cell"><h3 class="greenText">GATE: READY FOR DEVELOPMENT</h3><ul class="check"><li>Regras de negócio definidas</li><li>Critérios macro definidos</li><li>Solução aprovada</li><li>Integrações e dependências mapeadas</li><li>Estratégia de testes definida pelo QE</li><li>Fluxos críticos identificados</li><li>Tipos de teste e automação definidos</li></ul></div>
+<div class="cell"><ul class="fields green"><li>QE Strategy</li><li>Risk Level</li><li>Critical Flows</li><li>Test Types</li><li>Automation Recommendation</li><li>Dependencies</li></ul></div>
+<div class="cell"><div class="integration"><div class="integrationIcon confluence">C</div><div>Confluence<br><small>Solution Design</small></div></div><div class="integration"><div class="integrationIcon figma">F</div><div>Figma<br><small>Fluxos</small></div></div><div class="integration"><div class="integrationIcon cicd">A</div><div>APIs / Sistemas<br><small>Dependências</small></div></div></div>
+<div class="cell"><div class="resultIcon">↗</div><ul><li>Solução clara e validada</li><li>Estratégia de testes antecipada</li><li>Automação planejada</li><li>Menos ambiguidades</li><li>Mais velocidade</li></ul></div>
+
+<div class="cell type" style="min-height:365px"><div class="typeIcon story">▤</div><div class="typeTitle" style="color:#7e22ce">HISTÓRIA</div><div class="typeSub">Readiness da Execução</div></div>
+<div class="cell" style="min-height:365px"><div class="flow storyFlow"><div class="status purple">Refinement</div><span class="arrow" style="color:#7e22ce">→</span><div class="status purple">Ready for<br>Development</div><span class="arrow" style="color:#7e22ce">→</span><div class="status purple">Development</div><span class="arrow" style="color:#7e22ce">→</span><div class="status purple">Ready for<br>QE</div><span class="arrow" style="color:#7e22ce">→</span><div class="status purple">QA<br>Execution</div><span class="arrow" style="color:#7e22ce">→</span><div class="status purple">Ready for<br>Release</div><span class="gateCheck">✓</span></div><div class="mini"><div><div class="circle">GH</div>GitHub<br><small>PR / Code</small></div><div><div class="circle">CI</div>CI/CD<br><small>Build / Tests</small></div><div><div class="circle">Z</div>Zephyr<br><small>Test Execution</small></div><div><div class="circle">J</div>Jira<br><small>Bugs</small></div></div></div>
+<div class="cell" style="min-height:365px"><div class="gateBox"><h3 class="purpleText">GATE: READY FOR DEVELOPMENT</h3><ul class="check"><li>Acceptance Criteria preenchidos</li><li>Mockup / Figma anexado</li><li>Subtasks criadas</li><li>QE Strategy definida</li><li>Risk Level definido</li><li>Cobertura de testes planejada</li></ul></div><div class="gateBox"><h3 class="purpleText">GATE: READY FOR QE</h3><ul class="check"><li>PR aprovado</li><li>Build OK</li><li>Unit tests executados</li><li>Automação criada quando aplicável</li></ul></div><div class="gateBox"><h3 class="purpleText">GATE: READY FOR RELEASE</h3><ul class="check"><li>Test cases vinculados no Zephyr</li><li>Test cycle vinculado</li><li>100% execução</li><li>Sem testes bloqueados</li><li>Evidências anexadas</li><li>Bugs críticos = 0</li><li>Build / Deploy OK</li></ul></div></div>
+<div class="cell" style="min-height:365px"><ul class="fields purple"><li>Acceptance Criteria</li><li>Figma Link</li><li>QE Strategy</li><li>Risk Level</li><li>Test Coverage</li><li>Automation Scope</li><li>PR Link</li><li>Build Status</li><li>Unit Test Status</li><li>Zephyr Cycle</li><li>Execution Status</li><li>Evidence URL</li><li>Critical Bugs JQL</li></ul></div>
+<div class="cell" style="min-height:365px"><div class="integration"><div class="integrationIcon figma">F</div><div>Figma<br><small>Mockups</small></div></div><div class="integration"><div class="integrationIcon github">G</div><div>GitHub<br><small>PR / Code</small></div></div><div class="integration"><div class="integrationIcon cicd">CI</div><div>CI/CD<br><small>Build / Tests</small></div></div><div class="integration"><div class="integrationIcon zephyr">Z</div><div>Zephyr Scale<br><small>Test Execution</small></div></div><div class="integration"><div class="integrationIcon jira">J</div><div>Jira<br><small>Bugs</small></div></div></div>
+<div class="cell" style="min-height:365px"><div class="resultIcon">↗</div><ul><li>Execução com qualidade</li><li>Rastreabilidade ponta a ponta</li><li>Evidências centralizadas</li><li>Redução de defeitos</li><li>Releases mais seguros</li></ul></div>
+
+<div class="cell type"><div class="typeIcon subtask">☑</div><div class="typeTitle" style="color:#f97316">SUBTAREFA</div><div class="typeSub">Execução Técnica</div></div>
+<div class="cell"><div class="flow"><div class="status orange">To Do</div><span class="arrow" style="color:#f97316">→</span><div class="status orange">In Progress</div><span class="arrow" style="color:#f97316">→</span><div class="status orange">Code Review</div><span class="arrow" style="color:#f97316">→</span><div class="status orange">Done</div><span class="gateCheck">✓</span></div></div>
+<div class="cell"><h3 class="orangeText">GATE: DONE</h3><ul class="check"><li>Código commitado</li><li>PR aprovado</li><li>Build com sucesso</li><li>Code Review concluído</li></ul></div>
+<div class="cell"><ul class="fields orange"><li>PR Link</li><li>Build Status</li><li>Review Status</li><li>Assignee</li></ul></div>
+<div class="cell"><div class="integration"><div class="integrationIcon github">G</div><div>GitHub<br><small>PR / Code</small></div></div><div class="integration"><div class="integrationIcon cicd">CI</div><div>CI/CD<br><small>Build</small></div></div></div>
+<div class="cell"><div class="resultIcon">↗</div><ul><li>Execução técnica controlada</li><li>Código com qualidade</li><li>Menos retrabalho</li><li>Entrega previsível</li></ul></div>
+</section>
+
+<section class="footer">
+<div class="panel"><h3>PRINCÍPIOS DO MODELO</h3><ul><li>Qualidade desde o upstream</li><li>Informação obrigatória para avançar</li><li>Automação para governança</li><li>Rastreabilidade ponta a ponta</li><li>QE não é gargalo, é governança</li></ul></div>
+<div class="panel"><h3>COMO FUNCIONA</h3><div class="how"><div class="howStep"><div class="howIcon">1</div>Campos obrigatórios preenchidos</div><div class="howArrow">→</div><div class="howStep"><div class="howIcon">2</div>Gates avaliados automaticamente</div><div class="howArrow">→</div><div class="howStep"><div class="howIcon">3</div>Se critérios OK, item avança</div><div class="howArrow">→</div><div class="howStep"><div class="howIcon">4</div>Se falhar, item é bloqueado</div></div></div>
+<div class="panel"><h3>BENEFÍCIOS PARA O QE</h3><ul><li>Menos descoberta tardia</li><li>Mais foco em estratégia</li><li>Execução mais eficiente</li><li>Mais previsibilidade</li><li>QE deixa de ser gargalo</li></ul></div>
+<div class="panel"><h3>BENEFÍCIOS PARA A ORGANIZAÇÃO</h3><ul><li>Mais qualidade nas entregas</li><li>Menos retrabalho e restrições</li><li>Métricas reais e auditáveis</li><li>Compliance e governança</li><li>Aceleração com qualidade</li></ul></div>
+</section>
+</main>
+</body>
+</html>
